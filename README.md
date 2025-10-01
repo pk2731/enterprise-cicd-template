@@ -1,8 +1,26 @@
 # 🚀 Enterprise CI/CD Template
 
+> **Ready to use enterprise-grade CI/CD for your next project? Click "Use this template" above! 👆**
+
 ## 🎯 Overview
 
 This is a comprehensive **enterprise-grade CI/CD template** that enforces **zero-human access to production** while maintaining the highest standards of code quality, security, and reliability.
+
+## 📖 How to Use This Template
+
+### Option 1: GitHub Web Interface
+1. **Click "Use this template"** button above
+2. **Create your new repository**
+3. **Follow the [Complete Usage Guide →](./TEMPLATE_USAGE_GUIDE.md)**
+
+### Option 2: GitHub CLI
+```bash
+gh repo create your-project-name --template pk2731/enterprise-cicd-template --public --clone
+cd your-project-name
+# Follow the usage guide for setup
+```
+
+**👉 [READ THE COMPLETE USAGE GUIDE](./TEMPLATE_USAGE_GUIDE.md) 👈**
 
 ## 🌟 Key Features
 
@@ -72,60 +90,20 @@ Feature Branch → Quality Gates → Build → Dev → Staging → Production
 
 ## 🚀 Getting Started
 
-### 1. Use This Template
+### 📖 **Complete Setup Guide**
 
-1. Click **"Use this template"** on GitHub
-2. Create your new repository
-3. Clone your new repository locally
+👉 **[READ THE COMPLETE USAGE GUIDE](./TEMPLATE_USAGE_GUIDE.md)** 👈
 
-### 2. Customize Configuration
+For detailed step-by-step instructions on how to use this template, customize it for your project, and set up all the integrations.
 
-Edit these files with your project details:
+### ⚡ Quick Start
 
-```bash
-# Update project information
-vim sonar-project.properties        # SonarQube project details
-vim k8s/production/*.yaml          # Kubernetes configurations
-vim .github/CODEOWNERS              # Your team members
-```
-
-### 3. Set Up GitHub Secrets
-
-Add these secrets in **Settings → Secrets and variables → Actions**:
-
-```bash
-# SonarQube
-SONAR_TOKEN=your_sonarqube_token
-SONAR_HOST_URL=https://your-sonarqube-instance.com
-
-# AWS/Kubernetes
-AWS_ACCESS_KEY_ID=your_aws_access_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret_key
-AWS_REGION=us-west-2
-EKS_CLUSTER_NAME=your-cluster-name
-
-# Deployment
-DEV_SERVER_HOST=dev.example.com
-STAGING_SERVER_HOST=staging.example.com
-TEAMS_WEBHOOK_URL=your_notifications_webhook
-```
-
-### 4. Configure Branch Protection
-
-Go to **Settings → Branches** and set up protection for:
-
-- **main** (Production): Requires 2 approvals + all status checks
-- **staging** (Staging): Requires 1 approval + quality gates  
-- **develop** (Development): Requires 1 approval + basic checks
-
-### 5. Set Up SonarQube
-
-1. Create project in SonarQube
-2. Set up quality gate with:
-   - Coverage on new code ≥ 85%
-   - Duplicated lines ≤ 3%
-   - Security/Maintainability rating = A
-   - Zero bugs/vulnerabilities on new code
+1. **Click "Use this template"** → Create new repository
+2. **Clone your new repo** locally
+3. **Follow the [Template Usage Guide](./TEMPLATE_USAGE_GUIDE.md)** for complete setup
+4. **Configure GitHub secrets** for your integrations
+5. **Set up branch protection rules** as described in the guide
+6. **Start coding** with enterprise-grade CI/CD!
 
 ## 🔄 Workflow
 
