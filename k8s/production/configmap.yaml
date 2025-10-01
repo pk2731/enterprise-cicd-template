@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: production
+  labels:
+    app: yourapp
+    environment: production
+data:
+  # Application Configuration
+  NODE_ENV: "production"
+  PORT: "3000"
+  LOG_LEVEL: "info"
+  
+  # Database Configuration (non-sensitive)
+  DB_CONNECTION_POOL_SIZE: "10"
+  DB_CONNECTION_TIMEOUT: "30000"
+  DB_QUERY_TIMEOUT: "15000"
+  
+  # Redis Configuration (non-sensitive)
+  REDIS_CONNECTION_POOL_SIZE: "5"
+  REDIS_CONNECTION_TIMEOUT: "5000"
+  
+  # Cache Configuration
+  CACHE_TTL: "3600"
+  CACHE_MAX_SIZE: "100MB"
+  
+  # API Configuration
+  API_RATE_LIMIT: "1000"
+  API_REQUEST_TIMEOUT: "30000"
+  API_MAX_PAYLOAD_SIZE: "10MB"
+  
+  # Security Configuration
+  CORS_ENABLED: "true"
+  CORS_ORIGIN: "https://yourapp.com"
+  SESSION_SECURE: "true"
+  SESSION_HTTP_ONLY: "true"
+  SESSION_SAME_SITE: "strict"
+  
+  # Monitoring Configuration
+  METRICS_ENABLED: "true"
+  METRICS_PORT: "9090"
+  HEALTH_CHECK_ENABLED: "true"
+  
+  # Feature Flags
+  FEATURE_NEW_API: "true"
+  FEATURE_ENHANCED_LOGGING: "true"
+  FEATURE_PERFORMANCE_MONITORING: "true"
+  
+  # External Services
+  EXTERNAL_API_TIMEOUT: "10000"
+  EXTERNAL_API_RETRY_COUNT: "3"
+  EXTERNAL_API_RETRY_DELAY: "1000"

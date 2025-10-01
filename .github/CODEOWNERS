@@ -1,0 +1,244 @@
+# ====================================
+# CODEOWNERS - Mandatory Code Reviews
+# ====================================
+
+# This file defines mandatory reviewers for different parts of the codebase.
+# When a PR touches these files, the specified teams/individuals must approve.
+
+# ====================================
+# GLOBAL OWNERS (FALLBACK)
+# ====================================
+
+# Default owners for everything not specifically covered
+* @tech-lead @senior-dev-1
+
+# ====================================
+# FRONTEND CODE
+# ====================================
+
+# React/Vue components and UI code
+/src/components/ @frontend-team @ui-ux-lead
+/src/pages/ @frontend-team @ui-ux-lead
+/src/assets/ @frontend-team @ui-ux-lead
+/src/styles/ @frontend-team @ui-ux-lead
+/public/ @frontend-team
+
+# Frontend configuration
+/package.json @frontend-team @tech-lead
+/webpack.config.js @frontend-team @devops-team
+/vite.config.js @frontend-team @devops-team
+/.eslintrc* @frontend-team @tech-lead
+/.prettierrc* @frontend-team @tech-lead
+
+# ====================================
+# BACKEND CODE
+# ====================================
+
+# API and business logic
+/src/api/ @backend-team @architecture-lead
+/src/services/ @backend-team @architecture-lead
+/src/controllers/ @backend-team @architecture-lead
+/src/middleware/ @backend-team @architecture-lead
+/src/models/ @backend-team @architecture-lead
+/src/utils/ @backend-team @architecture-lead
+
+# Database related
+/src/database/ @backend-team @dba-lead
+/src/migrations/ @backend-team @dba-lead
+/src/seeds/ @backend-team @dba-lead
+/prisma/ @backend-team @dba-lead
+/sequelize/ @backend-team @dba-lead
+
+# ====================================
+# SECURITY SENSITIVE CODE
+# ====================================
+
+# Authentication and authorization
+/src/auth/ @security-team @backend-team @tech-lead
+/src/security/ @security-team @backend-team
+/src/crypto/ @security-team @backend-team
+
+# Configuration with sensitive data
+/config/ @security-team @devops-team @tech-lead
+/.env* @security-team @devops-team
+/secrets/ @security-team @devops-team
+
+# ====================================
+# DEVOPS AND INFRASTRUCTURE
+# ====================================
+
+# CI/CD pipelines
+/.github/ @devops-team @tech-lead
+/.github/workflows/ @devops-team @tech-lead @security-team
+
+# Kubernetes manifests
+/k8s/ @devops-team @infrastructure-lead @security-team
+/helm/ @devops-team @infrastructure-lead
+/terraform/ @devops-team @infrastructure-lead @security-team
+
+# Docker configuration
+/Dockerfile* @devops-team @backend-team
+/docker-compose* @devops-team @backend-team
+/.dockerignore @devops-team
+
+# Deployment scripts
+/scripts/ @devops-team @tech-lead
+/deploy/ @devops-team @infrastructure-lead
+
+# ====================================
+# PRODUCTION SECRETS (HIGHEST SECURITY)
+# ====================================
+
+# Production Kubernetes secrets require security team + 2 others
+/k8s/production/secret.yaml @security-team @devops-team @tech-lead
+
+# Production configuration
+/k8s/production/ @devops-team @security-team @infrastructure-lead
+
+# ====================================
+# TESTING
+# ====================================
+
+# Test configuration and critical tests
+/tests/ @qa-team @backend-team
+/__tests__/ @qa-team @backend-team
+/cypress/ @qa-team @frontend-team
+/jest.config.js @qa-team @tech-lead
+/playwright.config.js @qa-team @frontend-team
+
+# Performance tests
+/performance/ @qa-team @devops-team @backend-team
+/load-tests/ @qa-team @devops-team
+
+# ====================================
+# QUALITY ASSURANCE
+# ====================================
+
+# Code quality configuration
+/sonar-project.properties @qa-team @tech-lead @devops-team
+/.sonarcloud.properties @qa-team @tech-lead
+/quality-gates/ @qa-team @tech-lead
+
+# Linting and formatting
+/.eslintrc* @tech-lead @frontend-team @backend-team
+/.prettierrc* @tech-lead @frontend-team
+/tslint.json @tech-lead @frontend-team
+/stylelint.config.js @tech-lead @frontend-team
+
+# ====================================
+# DOCUMENTATION
+# ====================================
+
+# Main documentation
+/README.md @tech-writer @tech-lead
+/docs/ @tech-writer @tech-lead
+/wiki/ @tech-writer @tech-lead
+
+# API documentation
+/api-docs/ @tech-writer @backend-team @architecture-lead
+/swagger/ @tech-writer @backend-team
+/openapi/ @tech-writer @backend-team
+
+# Architecture documentation
+/architecture/ @architecture-lead @tech-lead @tech-writer
+/adr/ @architecture-lead @tech-lead
+
+# User documentation
+/user-guide/ @tech-writer @product-team
+/tutorials/ @tech-writer @product-team
+
+# ====================================
+# DEPENDENCY MANAGEMENT
+# ====================================
+
+# Package files require security review
+package.json @security-team @tech-lead @backend-team
+package-lock.json @security-team @tech-lead @backend-team
+yarn.lock @security-team @tech-lead @backend-team
+requirements.txt @security-team @tech-lead @backend-team
+Pipfile @security-team @tech-lead @backend-team
+go.mod @security-team @tech-lead @backend-team
+pom.xml @security-team @tech-lead @backend-team
+build.gradle @security-team @tech-lead @backend-team
+
+# ====================================
+# LEGAL AND COMPLIANCE
+# ====================================
+
+# Legal documents
+/LICENSE* @legal-team @tech-lead
+/PRIVACY* @legal-team @product-team
+/TERMS* @legal-team @product-team
+/COPYRIGHT* @legal-team @tech-lead
+
+# Compliance
+/compliance/ @legal-team @security-team @tech-lead
+/gdpr/ @legal-team @security-team @product-team
+
+# ====================================
+# SPECIFIC FILE TYPES
+# ====================================
+
+# Shell scripts (security sensitive)
+*.sh @devops-team @security-team
+
+# SQL files (data integrity critical)
+*.sql @dba-lead @backend-team @security-team
+
+# Configuration files
+*.yaml @devops-team @backend-team
+*.yml @devops-team @backend-team
+*.json @tech-lead @backend-team
+*.toml @tech-lead @backend-team
+*.ini @tech-lead @backend-team
+
+# ====================================
+# CRITICAL BUSINESS LOGIC
+# ====================================
+
+# Payment processing
+/src/payments/ @security-team @backend-team @tech-lead @legal-team
+
+# User data handling
+/src/user-data/ @security-team @backend-team @legal-team
+
+# Financial calculations
+/src/financial/ @security-team @backend-team @finance-team @tech-lead
+
+# External integrations
+/src/integrations/ @backend-team @architecture-lead @security-team
+
+# ====================================
+# MONITORING AND OBSERVABILITY
+# ====================================
+
+# Monitoring configuration
+/monitoring/ @devops-team @sre-team
+/grafana/ @devops-team @sre-team
+/prometheus/ @devops-team @sre-team
+/alerts/ @devops-team @sre-team @tech-lead
+
+# Logging configuration
+/logging/ @devops-team @backend-team
+/log-config/ @devops-team @backend-team
+
+# ====================================
+# BRANCH-SPECIFIC RULES
+# ====================================
+
+# Main branch requires the highest level of review
+# (This is enforced through branch protection rules in GitHub)
+
+# Hotfix branches require security and tech lead review
+/hotfix/ @security-team @tech-lead @senior-dev-1
+
+# ====================================
+# NOTES FOR REVIEWERS
+# ====================================
+
+# 1. All reviewers must check that changes follow the coding standards
+# 2. Security team must verify no secrets are committed
+# 3. Architecture changes require architecture-lead approval
+# 4. Database changes require dba-lead approval
+# 5. Production deployments require devops-team approval
+# 6. Breaking changes require tech-lead approval and documentation updates
